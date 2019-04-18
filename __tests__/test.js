@@ -3,9 +3,17 @@ import gendiff from '../src';
 
 describe('gendiff', () => {
   test('Json', () => {
-    const filePathBefore = './__tests__/__fixtures__/before.json';
-    const filePathAfter = './__tests__/__fixtures__/after.json';
-    const fileExpected = fs.readFileSync('./__tests__/__fixtures__/json-expected', 'utf-8');
+    const filePathBefore = './__tests__/__fixtures__/json/before.json';
+    const filePathAfter = './__tests__/__fixtures__/json/after.json';
+    const fileExpected = fs.readFileSync('./__tests__/__fixtures__/expected', 'utf-8');
+
+    expect(gendiff(filePathBefore, filePathAfter)).toEqual(fileExpected);
+  });
+
+  test('YAML', () => {
+    const filePathBefore = './__tests__/__fixtures__/yml/before.yml';
+    const filePathAfter = './__tests__/__fixtures__/yml/after.yml';
+    const fileExpected = fs.readFileSync('./__tests__/__fixtures__/expected', 'utf-8');
 
     expect(gendiff(filePathBefore, filePathAfter)).toEqual(fileExpected);
   });
