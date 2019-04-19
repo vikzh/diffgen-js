@@ -17,4 +17,12 @@ describe('gendiff', () => {
 
     expect(gendiff(filePathBefore, filePathAfter)).toEqual(fileExpected);
   });
+
+  test('Ini', () => {
+    const filePathBefore = './__tests__/__fixtures__/ini/before.ini';
+    const filePathAfter = './__tests__/__fixtures__/ini/after.ini';
+    const fileExpected = fs.readFileSync('./__tests__/__fixtures__/expected', 'utf-8');
+
+    expect(gendiff(filePathBefore, filePathAfter)).toEqual(fileExpected);
+  });
 });
