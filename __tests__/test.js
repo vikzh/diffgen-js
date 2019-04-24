@@ -7,9 +7,18 @@ describe('gendiff', () => {
   const flatYaml = ['./__tests__/__fixtures__/yml/before.yml', './__tests__/__fixtures__/yml/after.yml', fileExpected];
   const flatIni = ['./__tests__/__fixtures__/ini/before.ini', './__tests__/__fixtures__/ini/after.ini', fileExpected];
 
+  const fileNestedExpected = fs.readFileSync('./__tests__/__fixtures__/nested_expected', 'utf-8');
+  const nestedJson = ['./__tests__/__fixtures__/json/nested_before.json', './__tests__/__fixtures__/json/nested_after.json', fileNestedExpected];
+
   test.each([flatJson, flatYaml, flatIni])(
     '.files(%s, %s)', (firstFile, secondFile, expectedFile) => {
-      expect(gendiff(firstFile, secondFile)).toEqual(expectedFile);
+      expect(gendiff(firstFile, secondFile, 'tree')).toEqual(expectedFile);
+    },
+  );
+
+  test.each([nestedJson])(
+    '.files(%s, %s)', (firstFile, secondFile, expectedFile) => {
+      expect(gendiff(firstFile, secondFile, 'tree')).toEqual(expectedFile);
     },
   );
 });
