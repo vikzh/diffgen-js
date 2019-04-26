@@ -1,7 +1,7 @@
 {
-  "name": "diffgen",
+  "name": "@vikzh/diffgen",
   "version": "1.0.0",
-  "description": "",
+  "description": "diff calculator",
   "main": "dist/index.js",
   "bin": {
     "gendiff": "dist/bin/gendiff.js"
@@ -11,8 +11,21 @@
     "build": "NODE_ENV=production babel src --out-dir dist",
     "prepublishOnly": "npm run build"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vikzh/project-lvl2-s463.git"
+  },
+  "keywords": [
+    "diff",
+    "generator",
+    "calculator"
+  ],
+  "author": "Viktor Zhukovsky",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vikzh/project-lvl2-s463/issues"
+  },
+  "homepage": "https://github.com/vikzh/project-lvl2-s463#readme",
   "files": [
     "dist"
   ],
