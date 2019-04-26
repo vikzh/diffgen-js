@@ -1,6 +1,6 @@
 {
   "name": "@vikzh/diffgen",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "diff calculator",
   "main": "dist/index.js",
   "bin": {
