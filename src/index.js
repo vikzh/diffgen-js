@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import getRender from './renders';
-import parser from './parsers';
+import getRender from './renderers';
+import parse from './parsers';
 import makeAst from './ast';
 
 const gendiff = (filePath1, filePath2, format) => {
@@ -11,8 +11,8 @@ const gendiff = (filePath1, filePath2, format) => {
   const file1Extension = path.extname(filePath1);
   const file2Extension = path.extname(filePath2);
 
-  const data1 = parser(beforeContent, file1Extension);
-  const data2 = parser(afterContent, file2Extension);
+  const data1 = parse(beforeContent, file1Extension);
+  const data2 = parse(afterContent, file2Extension);
 
   const ast = makeAst(data1, data2);
   const render = getRender(format);

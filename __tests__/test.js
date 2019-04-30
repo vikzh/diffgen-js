@@ -40,7 +40,7 @@ describe('gendiff', () => {
   ];
 
   test.each(simpleFiles)(
-    'simple format, simple files .files(%s, %s)', (firstFile, secondFile) => {
+    'diff Tree format, simple files .files(%s, %s)', (firstFile, secondFile) => {
       expect(gendiff(firstFile, secondFile, 'tree')).toEqual(simpleExpected);
     },
   );
@@ -52,7 +52,7 @@ describe('gendiff', () => {
   );
 
   test.each(nestedFiles)(
-    'simple format, nested files .files(%s, %s)', (firstFile, secondFile) => {
+    'diff Tree format, nested files .files(%s, %s)', (firstFile, secondFile) => {
       expect(gendiff(firstFile, secondFile, 'tree')).toEqual(simpleNestedExpected);
     },
   );
